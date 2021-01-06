@@ -9,7 +9,7 @@ def add_note(largo,lista):
 
 
 # Open file with notes, this file is a .txt and is open read mode "r"
-file = open("/Users/rootdrigo/Documents/Tarea/text.txt", "r")
+file = open("/Users/rootdrigo/Documents/Tarea/notes.txt", "r")
 
 file_result = open("/Users/rootdrigo/Documents/Tarea/result.txt", "w")
 
