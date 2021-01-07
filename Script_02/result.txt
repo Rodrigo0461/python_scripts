@@ -1,0 +1,4 @@
+Alumno: Andres Balcano - Nota media: 5.0 - Aprobado 
+Alumno: Hugo Meneses - Nota media: 5.0 - Aprobado 
+Alumno: Ana Gallardo - Nota media: 3.98 - Reprobado 
+Alumno: Jose Cabrera - Nota media: 4.7 - Aprobado 

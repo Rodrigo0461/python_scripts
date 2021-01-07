@@ -7,31 +7,34 @@ def add_note(largo,lista):
         largo += 1
     return lista
 
+def main():
+    # Open file with notes, this file is a .txt and is open read mode "r"
+    file = open("/Users/rootdrigo/Repositories/python_scripts/Script_02/notes.txt", "r")
+    # Open o create file for save results, mode "w"
+    file_result = open("/Users/rootdrigo/Repositories/python_scripts/Script_02/result.txt", "w")
 
-# Open file with notes, this file is a .txt and is open read mode "r"
-file = open("/Users/rootdrigo/Documents/Tarea/notes.txt", "r")
+    # loops for read line by line
+    for line in file:
+        # Separate elements of list by "," 
+        valores=line.strip().split(",")
+        # trasform to float 
+        valoresInt=list(map(float,valores[1:]))
+        # calculate lenght of list
+        largo=len(valoresInt)
+        # check lenght of list, call to function "add_note"
+        listaInt = add_note(largo,valoresInt)
+        # sum notes
+        sumaNotas=sum(listaInt)
+        # media
+        media=sumaNotas/len(listaInt)
+        # validate approved or reprobate
+        aprobado="Aprobado" if media>=4 else "Reprobado"
+        # Imprime result to file result.txt
+        file_result.write("Alumno: {} - Nota media: {} - {} \n".format(valores[0], media, aprobado))
 
-file_result = open("/Users/rootdrigo/Documents/Tarea/result.txt", "w")
+    # close both files
+    file_result.close()
+    file.close()
 
-# loops for read line by line
-for line in file:
-    # Separate elements of list by "," 
-    valores=line.strip().split(",")
-    # trasform to float 
-    valoresInt=list(map(float,valores[1:]))
-    # calculate lenght of list
-    largo=len(valoresInt)
-    # check lenght of list, call to function "add_note"
-    listaInt = add_note(largo,valoresInt)
-    # sum notes
-    sumaNotas=sum(listaInt)
-    # media
-    media=sumaNotas/len(listaInt)
-    # validate approved or reprobate
-    aprobado="Aprobado" if media>=4 else "Reprobado"
-    # Imprime result to file result.txt
-    file_result.write("Alumno: {} - Nota media: {} - {} \n".format(valores[0], media, aprobado))
-
-# close both files
-file_result.close()
-file.close()
+if __name__ == "__main__":
+    main()
